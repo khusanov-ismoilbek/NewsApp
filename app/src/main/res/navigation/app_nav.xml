@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/app_nav"
+    app:startDestination="@id/splashScreen">
+
+    <fragment
+        android:id="@+id/splashScreen"
+        android:name="uz.gita.newsappflowretrofitdagger.presenter.ui.screen.SplashScreen"
+        android:label="screen_splash"
+        tools:layout="@layout/screen_splash" >
+        <action
+            android:id="@+id/action_splashScreen_to_mainScreen"
+            app:destination="@id/mainScreen"
+            app:popUpTo="@id/splashScreen"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/mainScreen"
+        android:name="uz.gita.newsappflowretrofitdagger.presenter.ui.screen.MainScreen"
+        android:label="screen_main_nav"
+        tools:layout="@layout/screen_main_nav" >
+        <action
+            android:id="@+id/action_mainScreen_to_detailScreen"
+            app:destination="@id/detailScreen" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailScreen"
+        android:name="uz.gita.newsappflowretrofitdagger.presenter.ui.screen.DetailScreen"
+        android:label="screen_details"
+        tools:layout="@layout/screen_details" >
+        <argument
+            android:name="title"
+            app:argType="string" />
+        <argument
+            android:name="siteUrl"
+            app:argType="string"
+            app:nullable="true" />
+    </fragment>
+</navigation>
